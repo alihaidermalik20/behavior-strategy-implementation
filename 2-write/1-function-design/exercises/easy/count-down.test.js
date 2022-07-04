@@ -11,7 +11,24 @@
 
 // -------- your solutions --------
 
-for (const solution of [secretSolution]) {
+// secretSolution(1);
+function secretSolution(start = 0) {
+  const resultArray = [];
+  for (let i = start; i >= 0; i--){
+    resultArray.push(i);
+  }
+  return resultArray;
+};
+
+function secretSolution2(start = 0) {
+  const resultArray = [];
+  for (let i = 0; i <= start; i++){
+    resultArray.unshift(i);
+  }
+  return resultArray;
+}
+
+for (const solution of [secretSolution, secretSolution2]) {
   // the main test suite for the function
   describe(solution.name + ': counts down to 0', () => {
     it('default parameter is 0 -> [0]', () => {
@@ -29,4 +46,4 @@ for (const solution of [secretSolution]) {
 
 // minified solution for testing your tests
 // prettier-ignore
-function secretSolution(a = 0) { if ("number" != typeof a) throw new TypeError("start is not a number"); if (!Number.isInteger(a)) throw new Error("start is not an integer"); if (0 > a) throw new RangeError("start is less than 0"); const b = []; for (let c = a; 0 <= c; c--)b.push(c); return b }
+// function secretSolution(a = 0) { if ("number" != typeof a) throw new TypeError("start is not a number"); if (!Number.isInteger(a)) throw new Error("start is not an integer"); if (0 > a) throw new RangeError("start is less than 0"); const b = []; for (let c = a; 0 <= c; c--)b.push(c); return b }
